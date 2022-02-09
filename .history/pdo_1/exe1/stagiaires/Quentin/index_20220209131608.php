@@ -30,7 +30,7 @@ if (
     if (key($_GET) === "add" && isset($_POST["thesectiontitle"]) && isset($_POST["thesectiondesc"])) {
         $title = userEntryProtection($_POST["thesectiontitle"]);
         $desc = userEntryProtection($_POST["thesectiondesc"]);
-        if (!empty($title) && strlen($title) <= 70 && !empty($desc) && strlen($desc) <= 240) {
+        if (!empty($title) && strlen($title) <= 70 && !empty($desc && strlen($desc) <= 240)) {
             if (thesectionInsert($db, $title, $desc)) {
                 header("Location: ./");
                 exit();
@@ -46,7 +46,7 @@ if (
             $title = userEntryProtection($_POST["thesectiontitle"]);
             $desc = userEntryProtection($_POST["thesectiondesc"]);
             $id = (int)($_POST["idthesection"]);
-            if (!empty($title) && strlen($title) <= 70 && !empty($desc) && strlen($desc) <= 240 && $id == $_GET["update"]) {
+            if (!empty($title) && strlen($title) <= 70 && !empty($desc && strlen($desc) <= 240) && $id == $_GET["update"]) {
                 if (thesectionUpdate($db, $id, $title, $desc)) {
                     header("Location: ./");
                     die();
